@@ -4,6 +4,13 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {
+    preview: {
+      host: true,
+      port: 4321,
+      allowedHosts: ['all'],
+    },
+  },
 });
 
