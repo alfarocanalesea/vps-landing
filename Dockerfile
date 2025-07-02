@@ -1,9 +1,13 @@
-version: '3.8'
+# Dockerfile para Astro
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN npm install && npm run build
 
-services:
-  vps-landing:
-    build: .
-    container_name: vps-landing
-    restart: always
-    ports:
-      - "9095:80"
+FROM node:20-alpine AS runner
+WORKDIR /app
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+EXPOSE 4321
+CMD ["npx", "astro", "preview"]
