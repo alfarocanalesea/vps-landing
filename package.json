@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview --port 4321",
-
-    
+    "preview": "astro preview --host --port 4321",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^5.10.2"
   },
+
+  
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2"
   }
