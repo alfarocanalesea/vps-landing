@@ -8,7 +8,7 @@ WORKDIR /app
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/astro.config.js ./astro.config.js
+COPY --from=builder /app/astro.config.mjs ./astro.config.mjs
 
 EXPOSE 4321
 CMD ["npx", "astro", "preview", "--host", "--port", "4321"]
