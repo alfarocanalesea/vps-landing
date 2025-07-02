@@ -8,8 +8,7 @@ export default defineConfig({
   vite: {
     preview: {
       host: true,
-      port: 4321,
-      allowedHosts: true,
+      port: 4321
     },
   },
 });

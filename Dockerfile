@@ -5,10 +5,8 @@ RUN npm install && npm run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/astro.config.mjs ./astro.config.mjs
 
+COPY --from=builder /app/dist ./dist
+RUN npm install -g serve
 EXPOSE 4321
-CMD ["npx", "astro", "preview", "--host", "0.0.0.0", "--port", "4321"]
+CMD ["serve", "-s", "dist", "-l", "4321"]
