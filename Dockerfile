@@ -6,4 +6,4 @@ services:
     container_name: vps-landing
     restart: always
     ports:
-      - "8080:80"
+      - "9095:80"
