@@ -9,7 +9,9 @@ export default defineConfig({
     preview: {
       host: true,
       port: 4321,
-      allowedHosts: ['vps.theonix.mx', 'www.vps.theonix.mx'],
+      allowedHosts: ['all'],
+
+      
     },
   },
 });
