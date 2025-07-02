@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  vps-landing:
+    container_name: vps-landing
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "8080:80"
+      - "9095:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
